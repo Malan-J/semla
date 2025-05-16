@@ -13,10 +13,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: |
-          # Assuming you don't have any dependencies for a basic HTML page, we can skip this step.
-
       - name: Upload artifact to enable deployment
         uses: actions/upload-artifact@v4
         with:
@@ -38,5 +34,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.KEY }}  # Use the default GitHub token for authentication
+          personal_token: ${{ secrets.KEY }}
           publish_dir: ./html
