@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Upload artifact to enable deployment
+      - name: Upload HTML as artifact
         uses: actions/upload-artifact@v4
         with:
           name: html-file
@@ -25,7 +25,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
+      - name: Download HTML artifact
         uses: actions/download-artifact@v4
         with:
           name: html-file
@@ -36,3 +36,4 @@ jobs:
         with:
           personal_token: ${{ secrets.KEY }}
           publish_dir: ./html
+          publish_branch: gh-pages
